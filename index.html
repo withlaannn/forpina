@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pilih Dengan Bijak</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    #main-content {
+      padding-top: 20%;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .trap-btn {
+      padding: 15px 35px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+      background-color: crimson;
+      transition: 0.3s;
+    }
+
+    .trap-btn:hover {
+      background-color: darkred;
+    }
+
+    #jumpscare {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: black;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #jumpscare img {
+      max-width: 100%;
+      max-height: 100%;
+      animation: zoom 0.4s ease-in-out;
+    }
+
+    @keyframes zoom {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1.4); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div id="main-content">
+    <h1>Pilih dengan bijak...</h1>
+    <div class="btn-container">
+      <button class="trap-btn" onclick="triggerJumpscare()">first</button>
+      <button class="trap-btn" onclick="triggerJumpscare()">second</button>
+      <button class="trap-btn" onclick="triggerJumpscare()">gausah</button>
+    </div>
+  </div>
+
+  <div id="jumpscare">
+    <img src="c3fdbd3a389a8e4c99bff6796f0e2a2f.jpg" alt="Scary Face">
+  </div>
+
+  <audio id="scream-sound" src="https://www.myinstants.com/media/sounds/scream.mp3"></audio>
+
+  <script>
+    function triggerJumpscare() {
+      document.getElementById('main-content').style.display = 'none';
+      document.getElementById('jumpscare').style.display = 'flex';
+      document.getElementById('scream-sound').play();
+    }
+  </script>
+</body>
+</html>
